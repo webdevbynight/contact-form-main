@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@use "../base/mixins" as *;
+
+/** @section Toast message */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        inset-block-start: calc(-1 * var(--toast-message-padding));
+    }
+}
+.toast-message {
+    color: var(--tertiary);
+    background: var(--senary-background);
+    padding: var(--toast-message-padding);
+    width: initial;
+    border: none;
+    border-radius: var(--toast-message-radius);
+    inset-block-start: var(--toast-message-padding);
+    inset-inline: var(--toast-message-padding);
+    animation: fade-in 300ms forwards, fade-out 550ms 5s forwards;
+    @media (prefers-reduced-motion: reduce) {
+        animation: initial;
+    }
+    .title {
+        font-size: var(--label-size);
+        margin-block-end: var(--toast-message-gap);
+        &::before {
+            background: url("images/sprites.svg") no-repeat center -39px;
+            vertical-align: middle;
+            display: inline-block;
+            width: 24px;
+            aspect-ratio: 1;
+            margin-inline-end: var(--toast-message-title-gap);
+            content: "";
+        }
+    }
+    @include css-media-queries($from-breakpoint: two-column-form) {
+        inline-size: var(--toast-message-size);
+        inset-inline: 50% auto;
+        transform: translateX(-50%);
+    }
+}

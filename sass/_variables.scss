@@ -24,6 +24,7 @@
     --tertiary-background-hover: #063f35;
     --quaternary-background: #86a2a5;
     --quinary-background: rgb(134 162 165 / .5);
+    --senary-background: #063f35;
     --primary-error: #d73c3c;
 
     // Borders, paddings, margins, corners and sizes
@@ -45,6 +46,11 @@
     --contact-form-checkbox-margin: #{px2rem(40)};
     --contact-form-checkbox-gap: #{px2rem(16)};
     --contact-form-textarea-size: #{px2rem(240)};
+    --toast-message-size: #{px2rem(402)};
+    --toast-message-gap: #{px2rem(8)};
+    --toast-message-padding: #{px2rem(24)};
+    --toast-message-radius: #{px2rem(12)};
+    --toast-message-title-gap: #{px2rem(10)};
 
     @include css-media-queries($from-breakpoint: two-column-form) {
         --contact-form-padding: #{px2rem(40)};
