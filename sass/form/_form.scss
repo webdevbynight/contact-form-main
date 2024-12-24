@@ -1,0 +1,170 @@
+@charset "UTF-8";
+@use "../base/mixins" as *;
+
+/** @section Form */
+.contact-form {
+    font-size: var(--text-size);
+    color: var(--primary-text-color);
+    background: var(--secondary-background);
+    box-sizing: border-box;
+    padding: var(--contact-form-padding);
+    border-radius: var(--contact-form-radius);
+    > p {
+        &:not(:last-of-type) {
+            margin-block: var(--contact-form-gap);
+        }
+        &:not(:has(input[type="checkbox"])) {
+            display: flex;
+            flex-direction: column;
+            gap: var(--contact-form-field-gap);
+        }
+        &:has(input[type="checkbox"]) {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--contact-form-field-gap) var(--contact-form-checkbox-gap);
+            align-items: center;
+            margin-block: var(--contact-form-checkbox-margin);
+            .error-message {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+    }
+    li,
+    input:not([type="checkbox"], [type="radio"]),
+    textarea {
+        border-radius: var(--contact-form-button-radius);
+    }
+    li,
+    input:not([type="checkbox"], [type="radio"], [type="submit"]),
+    textarea {
+        padding: var(--contact-form-field-padding);
+        border: 1px solid var(--quaternary-background);
+        transition: 300ms ease-in;
+    }
+    li {
+        font-size: var(--label-size);
+        display: flex;
+        gap: var(--contact-form-radio-gap);
+        align-items: center;
+        margin-block: var(--contact-form-checkbox-gap);
+        position: relative;
+        &:hover,
+        &:has(:focus) {
+            border-color: var(--tertiary-background);
+        }
+        &:has(:checked) {
+            background: var(--secondary-background-selected);
+        }
+        label {
+            flex: 1;
+            // Enlarge the clickable zone to the whole `li` parent
+            &::before {
+                position: absolute;
+                inset: 0;
+                content: "";
+            }
+        }
+    }
+    input,
+    textarea {
+        color: inherit;
+        box-sizing: border-box;
+    }
+    input:not([type="checkbox"], [type="radio"], [type="submit"]),
+    textarea {
+        &:hover,
+        &:focus {
+            border-color: var(--tertiary-background);
+        }
+        &:user-invalid {
+            border-color: var(--primary-error);
+        }
+    }
+    input {
+        &:not([type="checkbox"], [type="radio"], [type="submit"]) {
+            min-block-size: var(--contact-form-field-block-size);
+        }
+        &[type="checkbox"],
+        &[type="radio"] {
+            border: var(--contact-form-checkbox-border) solid;
+            appearance: none;
+            &:checked {
+                background: url("images/sprites.svg") no-repeat;
+                border: none;
+            }
+        }
+        &[type="checkbox"] {
+            width: var(--contact-form-checkbox-size);
+            height: var(--contact-form-checkbox-size);
+            border-color: var(--quaternary-background);
+            border-radius: var(--contact-form-checkbox-border);
+        }
+        &[type="radio"] {
+            width: var(--contact-form-radio-size);
+            height: var(--contact-form-radio-size);
+            border-color: var(--quinary-background);
+            border-radius: 50%;
+            &:checked {
+                background-position: center -18px;
+            }
+        }
+        &[type="submit"] {
+            font-size: var(--label-size);
+            font-weight: bold;
+            color: var(--tertiary);
+            background: var(--tertiary-background);
+            padding: var(--contact-form-submit-padding);
+            transition: background 300ms ease-in;
+            &:hover,
+            &:focus {
+                background: var(--tertiary-background-hover);
+            }
+        }
+    }
+    textarea {
+        min-block-size: var(--contact-form-textarea-size);
+        min-block-size: var(--contact-form-textarea-size);
+    }
+    label {
+        cursor: pointer;
+    }
+    .title {
+        font-size: var(--heading-size);
+        line-height: var(--heading-line-height);
+        letter-spacing: var(--heading-letter-spacing);
+        margin-block-end: var(--contact-form-title-margin);
+    }
+    .required-marker {
+        color: var(--secondary);
+        margin-inline-start: var(--contact-form-field-gap);
+    }
+    .error-message {
+        color: var(--primary-error);
+    }
+    @include css-media-queries($from-breakpoint: two-column-form) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--contact-form-gap) var(--contact-form-column-gap);
+        > p:not(:has(input[type="text"])),
+        fieldset,
+        .title {
+            grid-column: span 2;
+        }
+        > p:not(:last-of-type) {
+            margin-block: initial;
+        }
+        ul {
+            display: flex;
+            gap: var(--contact-form-column-gap);
+        }
+        li {
+            flex: 1;
+        }
+    }
+    @include css-media-queries($from-breakpoint: standalone-form) {
+        inline-size: var(--contact-form-size);
+    }
+}

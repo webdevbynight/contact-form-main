@@ -1,0 +1,55 @@
+@charset "utf-8";
+@use "sass:math";
+@use "./base/functions" as *;
+@use "./base/mixins" as *;
+
+// Variables
+:root {
+    // Fonts
+    --font: Karla, sans-serif;
+    --text-size: #{px2rem(16)};
+    --label-size: #{px2rem(18)};
+    --heading-size: #{px2rem(32)};
+    --heading-line-height: 1;
+    --heading-letter-spacing: calc(-1em / 32);
+
+    // Colours
+    --primary: #2a4144;
+    --secondary: #0c7d69;
+    --tertiary: white;
+    --primary-background: #e0f1e8;
+    --secondary-background: white;
+    --secondary-background-selected: #e0f1e8;
+    --tertiary-background: #0c7d69;
+    --tertiary-background-hover: #063f35;
+    --quaternary-background: #86a2a5;
+    --quinary-background: rgb(134 162 165 / .5);
+    --primary-error: #d73c3c;
+
+    // Borders, paddings, margins, corners and sizes
+    --contact-form-size: #{px2rem(736)};
+    --contact-form-padding: #{px2rem(24)};
+    --contact-form-gap: #{px2rem(24)};
+    --contact-form-column-gap: #{px2rem(16)};
+    --contact-form-radius: #{px2rem(16)};
+    --contact-form-button-radius: #{px2rem(8)};
+    --contact-form-field-gap: #{px2rem(8)};
+    --contact-form-field-padding: #{px2rem(12)} #{px2rem(24)};
+    --contact-form-field-block-size: #{px2rem(51)};
+    --contact-form-submit-padding: #{px2rem(16)};
+    --contact-form-title-margin: #{px2rem(32)};
+    --contact-form-radio-size: #{px2rem(21)};
+    --contact-form-radio-gap: #{px2rem(12)};
+    --contact-form-checkbox-size: #{px2rem(18)};
+    --contact-form-checkbox-border: #{px2rem(1.5)};
+    --contact-form-checkbox-margin: #{px2rem(40)};
+    --contact-form-checkbox-gap: #{px2rem(16)};
+    --contact-form-textarea-size: #{px2rem(240)};
+
+    @include css-media-queries($from-breakpoint: two-column-form) {
+        --contact-form-padding: #{px2rem(40)};
+        --contact-form-textarea-size: #{px2rem(132)};
+        --contact-form-title-margin: #{px2rem(8)};
+        --contact-form-checkbox-margin: #{px2rem(16)};
+    }
+}
