@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <title>Frontend Mentor | Contact form</title>
+    </head>
+    <body>
+
+        <main>
+
+            <!-- Begin form -->
+            <form class="contact-form" method="post" action="./" novalidate>
+                <h1 class="title">Contact Us</h1>
+                <p>
+                    <label for="first-name">First Name <span class="required-marker" aria-label="required">*</span></label>
+                    <input id="first-name" name="first-name" type="text" required aria-describedby="first-name-error-message">
+                    <span id="first-name-error-message" class="error-message" aria-live="assertive">This field is required</span>
+                </p>
+                <p>
+                    <label for="last-name">Last Name <span class="required-marker" aria-label="required">*</span></label>
+                    <input id="last-name" name="last-name" type="text" required aria-describedby="last-name-error-message">
+                    <span id="last-name-error-message" class="error-message" aria-live="assertive">This field is required</span>
+                </p>
+                <p>
+                    <label for="email">Email Address <span class="required-marker" aria-label="required">*</span></label>
+                    <input id="email" name="email" type="email" required aria-describedby="email-error-message">
+                    <span id="email-error-message" class="error-message" aria-live="assertive">Please enter a valid email address</span>
+                </p>
+                <fieldset>
+                    <legend>Query Type <span class="required-marker" aria-label="required">*</span></legend>
+                    <ul>
+                        <li>
+                            <input id="query-type-general-enquiry" name="query-type" type="radio" value="General Enquiry" required aria-describedby="query-type-error-message">
+                            <label for="query-type-general-enquiry">General Enquiry</label>
+                        </li>
+                        <li>
+                            <input id="query-type-support-request" name="query-type" type="radio" value="Support Request" required aria-describedby="query-type-error-message">
+                            <label for="query-type-support-request">Support Request</label>
+                        </li>
+                    </ul>
+                    <p id="query-type-error-message" class="error-message" aria-live="assertive">Please select a query type</p>
+                </fieldset>
+                <p>
+                    <label for="message">Message <span class="required-marker" aria-label="required">*</span></label>
+                    <textarea id="message" name="message" required aria-describedby="message-error-message"></textarea>
+                    <span id="message-error-message" class="error-message" aria-live="assertive">This field is required</span>
+                </p>
+                <p>
+                    <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error-message">
+                    <label for="consent">I consent to being contacted by the team <span class="required-marker" aria-label="required">*</span></label>
+                    <span id="consent-error-message" class="error-message" aria-live="assertive">To submit this form, please consent to being contacted</span>
+                </p>
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+            </form>
+            <!-- End form -->
+
+            <!-- Begin toast message -->
+            <dialog class="toast-message" role="alertdialog" aria-live="assertive" aria-modal="true" aria-labelledby="toast-message-title" aria-describedby="toast-message-description">
+                <h2 id="toast-message-title" class="title">Message Sent!</h2>
+                <p id="toast-message-description">Thanks for completing the form. We’ll be in touch soon!</p>
+            </dialog>
+            <!-- End toast message -->
+
+        </main>
+
+        <footer class="attribution">
+            <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by <a href="https://github.com/webdevbynight">@webdevbynight</a>.</p>
+        </footer>
+    </body>
+</html>
