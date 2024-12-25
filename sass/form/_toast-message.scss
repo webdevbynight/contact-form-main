@@ -32,6 +32,9 @@
     @media (prefers-reduced-motion: reduce) {
         animation: initial;
     }
+    &:focus {
+        outline: none; // Safari 18.2-, Safari iOS 18.2-
+    }
     .title {
         font-size: var(--label-size);
         margin-block-end: var(--toast-message-gap);
